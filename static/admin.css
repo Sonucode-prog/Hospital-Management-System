@@ -1,0 +1,210 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  background: rgba(26, 42, 58, 0.85);
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  border-bottom: 2px solid #55c9ff;
+  backdrop-filter: blur(6px);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links li a {
+  color: #e6f7ff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #8aff00;
+  text-shadow: 0 0 8px rgba(138, 255, 0, 0.6);
+}
+
+/* Prevent admin content from hiding behind navbar */
+.admin_main {
+  padding-top: 100px;
+}
+
+/* ✅ BACKGROUND EXACTLY MATCHING IMAGE */
+.admin_main {
+  min-height: 100vh;
+  background: url(image3.jpg) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #1b3c57;
+}
+
+/* ✅ MAIN BLOCK WITH MEDICAL NEON EFFECT */
+.admin_block {
+  width: 70%;
+  background: rgba(255, 255, 255, 0.45);
+  border: 2px solid #55c9ff;
+  border-radius: 18px;
+  padding: 30px;
+  margin: 40px 0 0 0;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* ✅ FADE ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ TOP BAR */
+.top-bar {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid #79d3ff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.welcome {
+  font-weight: bold;
+  font-size: 1.4em;
+  color: #0077b6;
+}
+
+/* ✅ SEARCH BOX */
+.search-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #55c9ff;
+  outline: none;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.4);
+  color: #003d5b;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 12px rgba(0, 153, 255, 0.4);
+}
+
+/* ✅ BUTTONS – MEDICAL BLUE STYLE */
+button {
+  padding: 8px 15px;
+  border-radius: 10px;
+  margin: 2px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  transition: 0.3s;
+  background: #00b4ff;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.4);
+}
+
+#create{
+    background-color: rgb(151, 185, 100);
+}
+
+button:hover {
+  background: #0096d2;
+  box-shadow: 0 0 14px rgba(0, 170, 255, 0.6);
+}
+
+/* ✅ COLOR BUTTONS */
+#blacklist { background: #7d8ca3; }
+#blacklist:hover { background: #6b7b91; }
+
+#delete { background: #ff4c4c; }
+#delete:hover { background: #e63939; }
+
+#edit { background: #ffb703; color: #083042; }
+#edit:hover { background: #e6a300; }
+
+/* ✅ TITLES */
+#wel1 {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #005f99;
+  font-size: 1.2em;
+}
+
+/* ✅ LIST BOX STYLE */
+.doctor {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid #79d3ff;
+  border-radius: 10px;
+  padding: 2px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ✅ TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #0096d2;
+  color: white;
+  padding: 12px;
+  font-size: 1em;
+}
+
+td {
+  border-top: 1px solid #8ad7ff;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #004b6b;
+  text-align: center;
+}
+
+td button {
+  background: #00b4ff;
+  color: white;
+}
+
+td button:hover {
+  background: #0090cc;
+}
+
+/* ✅ LAST ROW HIGHLIGHT */
+tr:last-child td {
+  font-weight: bold;
+}

@@ -5,13 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>newdoctor</title>
-  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="{{url_for('static', filename='patient_hist.css')}}" />
 
 </head>
 
 <body>
-  <div id="main_block">
-    <div class="patient-history">
+  <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div id="admin_main">
+    <div class="admin_block">
       <h2>Patient History</h2>
       <a href="">
         <button class="button" >back</button>

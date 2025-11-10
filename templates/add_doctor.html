@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>newdoctor</title>
+    <link rel="stylesheet" href="/static/new_doct.css" />
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="admin_main">
+      <div class="admin_block">
+        <div id="header">
+          <h1>Add new Doctor</h1>
+        </div>
+        <div id="main">
+          <div id="content">
+            <form action="/login" method="post">
+              <div class="form-field">
+                <label for="fullname">Fullname</label>
+                <input
+                  id="fullname"
+                  name="doc_fullname"
+                  type="text"
+                  placeholder="Enter your fullname"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="Department">Specialization/Department</label>
+                <input
+                  id="Department"
+                  name="doc_department"
+                  type="text"
+                  placeholder="Enter Department of Doctor"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="experience">experience(years)</label>
+                <input
+                  id="experience"
+                  name="doc_experience"
+                  type="text"
+                  placeholder="experience"
+                  required
+                />
+              </div>
+
+              <div class="actions">
+                <button type="submit">create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

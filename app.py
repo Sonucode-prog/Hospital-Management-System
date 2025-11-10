@@ -1,27 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
-import module
+# import python_file.module as module
+from flask import Flask, redirect, url_for
 
+app=None
 
-
-app = Flask(__name__)
-
-
-
-@app.route("/")
-def login():
-    return render_template("login.html")
-
-@app.route("/registration")
-def registration():
-    return render_template("registration.html")
-
-
-@app.route("/admin")
-def admin():
-    return render_template("admin.html")
-
-
-
+def created_app():                                   
+    app = Flask(__name__)
+    app.debug=True
+    app.app_context().push() 
+    return app
+    
+    
+app= created_app()
+import app1
+    
+    
 if __name__ == "__main__":
     app.run(debug=True)
     

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patients</title>
+    <link rel="stylesheet" href="/static/doctor.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="admin_main">
+      <div id="admin_block">
+        <div class="top-bar">
+          <span class="welcome">Welcome patient</span>
+          <div class="search-box">
+            <button id="create">History</button>
+            <button>Logout</button>
+          </div>
+        </div>
+
+        <div id="wel1">
+          Departments
+          <div class="doctor">
+            <div>
+              <button>view details</button>
+            </div>
+          </div>
+
+          <div class="doctor">
+            <div>
+              <button>view details</button>
+            </div>
+          </div>
+
+          <div class="doctor">
+            <div>
+              <button>view details</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="wel1">Upcoming Appointments</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sr No.</th>
+              <th>Doctor Name</th>
+              <th>Department</th>
+              <th>Date</th>
+              <th colspan="2">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>In-person</td>
+              <td>45/5/2025</td>
+              <td>08 am</td>
+              <td><button id="delete">cancel</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

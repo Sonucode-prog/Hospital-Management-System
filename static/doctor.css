@@ -1,0 +1,215 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  background: rgba(26, 42, 58, 0.85);
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  border-bottom: 2px solid #55c9ff;
+  backdrop-filter: blur(6px);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links li a {
+  color: #e6f7ff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #8aff00;
+  text-shadow: 0 0 8px rgba(138, 255, 0, 0.6);
+}
+
+/* Prevent admin content from hiding behind navbar */
+.admin_main {
+  padding-top: 100px;
+}
+
+
+/* ✅ BACKGROUND USING image3.png */
+.admin_main {
+  min-height: 100vh;
+  background: url(image3.jpg) no-repeat center center fixed;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ✅ MAIN CONTAINER */
+#admin_block {
+  width: 70%;
+  background: rgba(255, 255, 255, 0.45);
+  border: 2px solid #55c9ff;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 40px 0 0 0;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
+  animation: fadeIn 0.7s ease-out;
+}
+
+/* ✅ TOP BAR */
+.top-bar {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid #79d3ff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #005f99;
+}
+
+/* ✅ LOGOUT BUTTON */
+.search-box button {
+  padding: 8px 18px;
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+}
+
+.search-box button:hover {
+  background: #d93c3c;
+  box-shadow: 0 0 14px rgba(255, 50, 50, 0.6);
+}
+
+/* ✅ SECTION TITLE */
+#wel1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #005f99;
+  font-size: 1.25em;
+}
+
+/* ✅ TABLE STYLING */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+th {
+  background: #0096d2;
+  color: white;
+  padding: 12px;
+  font-size: 1em;
+}
+
+td {
+  padding: 12px;
+  border-top: 1px solid #8ad7ff;
+  background: rgba(255, 255, 255, 0.55);
+  color: #003d5b;
+  text-align: center;
+}
+
+/* ✅ BLUE ACTION BUTTONS */
+td button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+
+  background: #00b4ff;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.4);
+}
+
+td button:hover {
+  background: #0096d2;
+}
+
+/* ✅ GREEN BUTTON (mark complete) */
+#create {
+  background: #8aff00;
+  color: #1a2a3a;
+  box-shadow: 0 0 8px rgba(138, 255, 0, 0.4);
+}
+
+#create:hover {
+  background: #76e600;
+}
+
+/* ✅ RED BUTTON (cancel) */
+#delete {
+  background: #ff4c4c;
+  color: white;
+  box-shadow: 0 0 8px rgba(255, 50, 50, 0.4);
+}
+
+#delete:hover {
+  background: #e63939;
+}
+
+/* ✅ ASSIGNED PATIENTS BOX */
+.doctor {
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid #79d3ff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.doctor button {
+  padding: 8px 18px;
+  background: #00b4ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.doctor button:hover {
+  background: #0096d2;
+  box-shadow: 0 0 14px rgba(0, 150, 212, 0.6);
+}
+
+/* ✅ Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

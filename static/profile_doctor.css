@@ -1,0 +1,110 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8fbff;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+/* Main Wrapper */
+.container {
+    width: 90%;
+    max-width: 850px;
+}
+
+/* Profile Card */
+.profile-card {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #d5e7ff;
+    padding: 30px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 100, 200, 0.15);
+}
+
+/* LEFT SIDE */
+.left {
+    width: 65%;
+}
+
+.left h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #142d4c;
+}
+
+.degree, .role {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #304c6d;
+}
+
+.experience {
+    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #0d335d;
+}
+
+.experience span {
+    font-size: .95rem;
+    color: #466d9d;
+}
+
+.bio {
+    margin-top: 12px;
+    line-height: 1.5rem;
+    color: #1f3b5c;
+}
+
+/* RIGHT SIDE IMAGE */
+.right {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.doc-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #93c7ff;
+}
+
+/* BUTTON ROW */
+.btn-row {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: 2px solid #60aaff;
+    background: white;
+    color: #1b4b73;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e9f4ff;
+    border-color: #3c91ff;
+}
+
+.back {
+    border-color: #b0c4d9;
+}

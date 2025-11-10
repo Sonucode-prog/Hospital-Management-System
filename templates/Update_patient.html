@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>newdoctor</title>
+  <link rel="stylesheet" href="/static/upd_patient.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div id="admin_main">
+    <div class="admin_block">
+        <h2>Update Patient History</h2> 
+      
+        <div class="patient-info">
+            <p>Patient Name: Mr. abcde</p>
+            <p>Doctors' Name: Dr. pqrst</p>
+            <p>Department: Cardiology</p>
+        </div>
+
+        <div id="content">
+            <form action="/login" method="post">
+            <div class="small_box">
+                <label for="visit_type">Visit Type</label>
+                <input
+
+                name="visit_type"
+                type="text"
+                required
+                />
+            </div>
+
+            <span class="small_box">
+                <label for="test_done">Test Done</label>
+                <input
+
+                name="test_done"
+                type="text"
+                required
+                />
+            </span>
+
+            <span class="long_bar">
+                <label for="diagnosis">Diagnosis</label>
+                <input
+
+                name="diagnosis"
+                type="text"
+                required
+                />
+            </span>
+
+            <span class="long_bar">
+                <label for="prescription">Prescription</label>
+                <input
+
+                name="prescription"
+                type="text"
+                required
+                />
+            </span>
+
+            <span class="side_bar">
+                <label for="medicines">Medicines</label>
+                <input
+
+                name="medicines"
+                type="text"
+                required
+                />
+            </span>
+
+            <div class="actions">
+                <button type="save">Save</button>
+            </div>
+            </form>
+        </div>
+
+        
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

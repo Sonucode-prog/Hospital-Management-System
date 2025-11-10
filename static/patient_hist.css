@@ -1,0 +1,152 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ✅ BACKGROUND WITH MEDICAL THEME + image3.png */
+body {
+    min-height: 100vh;
+    background: url(image3.jpg) no-repeat center center fixed;
+  background-size: cover;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    padding-top: 60px;
+}
+
+/* ✅ NAVBAR */
+.navbar {
+    width: 100%;
+    background: rgba(26, 42, 58, 0.85);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  
+    border-bottom: 2px solid #55c9ff;
+    backdrop-filter: blur(6px);
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+  }
+  
+  .nav-links li a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    color: #8aff00;
+    text-shadow: 0 0 8px rgba(138, 255, 0, 0.6);
+  }
+  
+  /* Prevent admin content from hiding behind navbar */
+  .admin_main {
+    padding-top: 100px;
+  }
+
+/* ✅ MAIN WRAPPER */
+#admin_main {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ✅ CARD CONTAINER */
+.admin_block {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.45);
+    border: 2px solid #55c9ff;
+    border-radius: 18px;
+    padding: 30px;
+    backdrop-filter: blur(9px);
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* ✅ TITLE */
+.admin_block h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #005f99;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+/* ✅ BACK BUTTON */
+.button {
+    padding: 8px 20px;
+    background-color: #00b4ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+    
+}
+
+.button:hover {
+    background-color: #0096d2;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.6);
+}
+
+/* ✅ PATIENT INFO BOX */
+.patient-info {
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid #79d3ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.8em;
+    color: #004b6b;
+    font-size: 1.05em;
+}
+
+/* ✅ TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* HEADER CELLS */
+th {
+    background: #0096d2;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+}
+
+/* DATA CELLS */
+td {
+    padding: 12px;
+    border-top: 1px solid #8ad7ff;
+    background: rgba(255, 255, 255, 0.55);
+    color: #003d5b;
+}
+
+/* LAST ROW (....) */
+tr:last-child td {
+    text-align: center;
+    font-weight: bold;
+    color: #0077b6;
+}
+
+/* ✅ ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

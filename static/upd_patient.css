@@ -1,0 +1,188 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ✅ BACKGROUND (same medical theme) */
+body {
+    min-height: 100vh;
+    background: url(image3.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    padding-top: 70px;
+}
+
+/* ✅ NAVBAR */
+.navbar {
+    width: 100%;
+    background: rgba(26, 42, 58, 0.85);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    border-bottom: 2px solid #55c9ff;
+    backdrop-filter: blur(6px);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links li a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #8aff00;
+    text-shadow: 0 0 8px rgba(138, 255, 0, 0.6);
+}
+
+/* Prevent admin content from hiding behind navbar */
+.admin_main {
+    padding-top: 100px;
+}
+
+/* ✅ PAGE WRAPPER */
+#admin_main {
+    display: flex;
+    justify-content: center;
+}
+
+/* ✅ MAIN CARD */
+.admin_block {
+    width: 90%;
+    background: rgba(255, 255, 255, 0.45);
+    border: 2px solid #55c9ff;
+    border-radius: 20px;
+    padding: 25px 35px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.3);
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* ✅ TITLE */
+.admin_block h2 {
+    margin-bottom: 15px;
+    color: #004f7c;
+    font-size: 1.8rem;
+}
+
+/* ✅ PATIENT INFO */
+.patient-info {
+    font-size: 1rem;
+    color: #003d5b;
+    margin-bottom: 15px;
+    line-height: 1.7rem;
+}
+
+/* ✅ FORM GRID LIKE THE IMAGE */
+#content form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* three columns layout */
+    gap: 15px 20px;
+    align-items: start;
+
+    border: 1px solid #55c9ff;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* ✅ EACH FIELD DESIGN */
+label {
+    font-size: 0.95rem;
+    color: #004b6b;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #55c9ff;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #0096d2;
+    box-shadow: 0 0 8px rgba(0, 150, 212, 0.4);
+}
+
+/* ✅ Layout Positions EXACTLY LIKE IMAGE */
+.small_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.long_bar {
+    grid-column: span 2;
+    /* makes the width same as the image */
+    display: flex;
+    flex-direction: column;
+}
+
+.side_bar {
+    grid-row: span 2;
+    /* tall right box */
+    display: flex;
+    flex-direction: column;
+}
+
+.side_bar input {
+    height: 160px;
+    /* matches the image’s medicine area */
+    resize: none;
+}
+
+/* ✅ SAVE BUTTON RIGHT SIDE */
+.actions {
+    grid-column: 3;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.actions button {
+    background: #8aff00;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1a2a3a;
+    transition: 0.3s;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px rgba(138, 255, 0, 0.4);
+}
+
+.actions button:hover {
+    background: #76e600;
+}
+
+/* ✅ FADE ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

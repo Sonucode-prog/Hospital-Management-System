@@ -4,6 +4,45 @@
   box-sizing: border-box;
 }
 
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  background: rgba(26, 42, 58, 0.95);
+  padding: 15px 20px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #00c4ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #8aff00;
+  text-shadow: 0 0 8px rgba(138, 255, 0, 0.7);
+}
+
+/* Ensure main content does not hide behind navbar */
+body {
+  padding-top: 80px;
+}
+
+/* ================= BODY & BACKGROUND ================= */
+
 body {
   height: 100vh;
   background-color: #1a2a3a;
@@ -17,11 +56,12 @@ body {
   color: #e0e0e0;
 }
 
+/* ================= MAIN BLOCK ================= */
+
 .main_block {
   background-color: rgba(30, 40, 50, 0.9);
   border: 1px solid #00c4ff;
-  width: 90vw;
-  max-width: 600px;
+  width: 95vb;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -35,6 +75,8 @@ body {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ================= HEADER ================= */
 
 #header {
   width: 100%;
@@ -50,6 +92,8 @@ body {
   letter-spacing: 1px;
 }
 
+/* ================= MAIN AREA ================= */
+
 #main {
   background-color: rgba(40, 50, 60, 0.8);
   border: 1px solid #00c4ff;
@@ -57,6 +101,8 @@ body {
   padding: 30px;
   border-radius: 10px;
 }
+
+/* ================= FORM ================= */
 
 form {
   display: flex;
@@ -69,11 +115,13 @@ label {
   color: #a0dfff;
   font-size: 1.1em;
 }
-select{
+
+select {
   appearance: none;
   cursor: pointer;
 }
-select,input {
+
+select, input {
   margin-bottom: 20px;
   padding: 12px;
   width: 100%;
@@ -92,30 +140,33 @@ select option {
   padding: 10px;
 }
 
-select option:checked,
-select option:hover {
-    background: #0a84ff;
-    color: #fff;
+select option:hover,
+select option:checked {
+  background: #0a84ff;
+  color: #fff;
 }
 
-/* Scrollbar styling inside dropdown */
+/* Scrollbar inside dropdown */
 select::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 select::-webkit-scrollbar-track {
-    background: #0f1a23;
+  background: #0f1a23;
 }
 
 select::-webkit-scrollbar-thumb {
-    background: #0a84ff;
-    border-radius: 10px;
+  background: #0a84ff;
+  border-radius: 10px;
 }
 
-select,input:focus {
+select:focus,
+input:focus {
   border-color: #8aff00;
   box-shadow: 0 0 10px rgba(138, 255, 0, 0.5);
 }
+
+/* ================= BUTTONS ================= */
 
 button {
   padding: 10px 18px;
@@ -129,7 +180,6 @@ button {
   border: 1px solid #00c4ff;
   font-size: 1.1em;
   letter-spacing: 0.5px;
-  align-self: flex-end;
 }
 
 button:hover {
@@ -138,6 +188,8 @@ button:hover {
   color: #1a2a3a;
   box-shadow: 0 0 15px rgba(138, 255, 0, 0.5);
 }
+
+/* ================= MISC ================= */
 
 .actions {
   margin: 8px;
@@ -163,172 +215,4 @@ button:hover {
 .new-user a:hover {
   color: #8aff00;
   text-shadow: 0 0 8px rgba(138, 255, 0, 0.7);
-}
-
-.patient-history {
-  width: 100%;
-  background-color: rgba(40, 50, 60, 0.8);
-  border: 1px solid #00c4ff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 196, 255, 0.3);
-  margin-top: 20px;
-  color: #e0e0e0;
-  overflow-x: auto;
-}
-
-.patient-history h2 {
-  text-align: left;
-  margin-bottom: 15px;
-  font-size: 1.4em;
-  color: #00c4ff;
-  border-bottom: 1px solid #00c4ff;
-  padding-bottom: 5px;
-}
-
-.patient-info {
-  font-size: 1em;
-  margin-bottom: 20px;
-  line-height: 1.8;
-  color: #a0dfff;
-}
-
-table {
-  width: 100%;
-  min-width: 500px;
-  border-collapse: collapse;
-  font-size: 0.95em;
-  margin-top: 15px;
-}
-
-th, td {
-  border: 1px solid #00c4ff;
-  padding: 10px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-th {
-  background-color: #0a4f6d;
-  font-weight: bold;
-  color: #e0e0e0;
-  white-space: nowrap;
-}
-
-td {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  background-color: rgba(50, 60, 70, 0.7);
-  color: #e0e0e0;
-}
-
-tr:last-child td {
-  text-align: center;
-  font-weight: bold;
-  color: #8aff00;
-}
-
-.top-bar {
-  border: 1px solid #00c4ff;
-  padding: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 5px 0 15px 0;
-  background-color: rgba(20, 30, 40, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 196, 255, 0.3);
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.welcome {
-  font-weight: bold;
-  color: #00c4ff;
-  font-size: 1.2em;
-  margin: 10px;
-}
-
-#wel1 {
-  margin: 20px 0 0 0;
-  font-weight: bold;
-  color: #a0dfff;
-}
-
-.doctor {
-  width: 100%;
-  height: 6vh;
-  border: 1px solid #00c4ff;
-  background-color: rgba(255, 255, 255, 0.05);
-  margin-bottom: 15px;
-  border-radius: 8px;
-}
-
-#edit, #create, #delete, #blacklist {
-  flex-grow: 1;
-  min-width: 80px;
-  text-align: center;
-}
-
-#edit {
-  background-color: #ffa500;
-  border: 1px solid #ffa500;
-  color: #1a2a3a;
-}
-
-#create {
-  background-color: #8aff00;
-  border: 1px solid #8aff00;
-  color: #1a2a3a;
-}
-
-#delete {
-  background-color: #ff3333;
-  border: 1px solid #ff3333;
-  color: #1a2a3a;
-}
-
-#blacklist {
-  background-color: #808080;
-  border: 1px solid #808080;
-  color: #1a2a3a;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.search-box input {
-  margin: 0;
-  padding: 8px 15px;
-  border: 1px solid #00c4ff;
-  border-radius: 15px;
-  outline: none;
-  font-size: 1em;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-  flex-grow: 1;
-  min-width: 150px;
-}
-
-.search-box button {
-  padding: 8px 15px;
-  border: 1px solid #00c4ff;
-  background-color: #00c4ff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 1em;
-  color: #1a2a3a;
-  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
-  white-space: nowrap;
-}
-
-.search-box button:hover {
-  background-color: #8aff00;
-  border-color: #8aff00;
-  box-shadow: 0 0 10px rgba(138, 255, 0, 0.5);
 }

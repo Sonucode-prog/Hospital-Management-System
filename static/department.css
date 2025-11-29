@@ -1,0 +1,140 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* FULL PAGE BACKGROUND */
+body {
+    background: url("/static/image3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* TOP NAVBAR */
+.top-menu {
+    width: 100%;
+    padding: 15px 25px;
+    color: white;
+    font-weight: bold;
+
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid #00b4ff;
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.top-menu a {
+    color: #a8ebff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.top-menu a:hover {
+    color: #75ff00;
+}
+
+/* MAIN GLASS CARD */
+.main {
+    width: 80%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.40);
+    border: 2px solid #55c9ff;
+    border-radius: 18px;
+    padding: 30px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.35);
+
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* SECTION TITLES */
+.main h2 {
+    margin-top: 20px;
+    color: #005f99;
+    font-size: 25px;
+    border-left: 5px solid #0096d2;
+    padding-left: 10px;
+}
+
+/* OVERVIEW TEXT */
+.main p {
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #073b5c;
+}
+
+/* DOCTOR LIST CONTAINER */
+.doctor-list {
+    margin-top: 20px;
+}
+
+/* EACH ROW */
+.doctor-row {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #8ad7ff;
+    border-radius: 12px;
+    padding: 12px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.doctor-row:hover {
+    background: rgba(255, 255, 255, 0.75);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 150, 255, 0.3);
+}
+
+/* DOCTOR NAME */
+.doc-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004b73;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* ACTION BUTTONS */
+button.blue {
+    background: #00b4ff;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+button.blue:hover {
+    background: #0096d2;
+    box-shadow: 0 0 14px rgba(0, 150, 212, 0.6);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,93 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Update Patient History</title>
+    <link rel="stylesheet" href="/static/upd_patient.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>newdoctor</title>
-  <link rel="stylesheet" href="/static/upd_patient.css" />
-</head>
+  <body>
+    <div class="box">
+      <h2>Update Patient History</h2>
 
-<body>
-  <nav class="navbar">
-    <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-  <div id="admin_main">
-    <div class="admin_block">
-        <h2>Update Patient History</h2> 
-      
-        <div class="patient-info">
-            <p>Patient Name: Mr. abcde</p>
-            <p>Doctors' Name: Dr. pqrst</p>
-            <p>Department: Cardiology</p>
+      <p><strong>Patient Name:</strong> {{ data.patient_name }}</p>
+      <p><strong>Department:</strong> {{ data.department }}</p>
+
+      <form method="POST" class="form-box">
+        <div class="row">
+          <div>
+            <label>Visit Type</label>
+            <input type="text" name="visit_type" required />
+          </div>
+
+          <div>
+            <label>Test Done</label>
+            <input type="text" name="test_done" />
+          </div>
         </div>
 
-        <div id="content">
-            <form action="/login" method="post">
-            <div class="small_box">
-                <label for="visit_type">Visit Type</label>
-                <input
+        <label>Diagnosis</label>
+        <input type="text" name="diagnosis" required />
 
-                name="visit_type"
-                type="text"
-                required
-                />
-            </div>
-
-            <span class="small_box">
-                <label for="test_done">Test Done</label>
-                <input
-
-                name="test_done"
-                type="text"
-                required
-                />
-            </span>
-
-            <span class="long_bar">
-                <label for="diagnosis">Diagnosis</label>
-                <input
-
-                name="diagnosis"
-                type="text"
-                required
-                />
-            </span>
-
-            <span class="long_bar">
-                <label for="prescription">Prescription</label>
-                <input
-
-                name="prescription"
-                type="text"
-                required
-                />
-            </span>
-
-            <span class="side_bar">
-                <label for="medicines">Medicines</label>
-                <input
-
-                name="medicines"
-                type="text"
-                required
-                />
-            </span>
-
-            <div class="actions">
-                <button type="save">Save</button>
-            </div>
-            </form>
+        <div class="row">
+          <div class="med-box">
+            <label>Medicines</label>
+            <textarea
+              name="medicines"
+              placeholder="Medicine 1  1-0-1&#10;Medicine 2  0-1-1"
+            ></textarea>
+          </div>
         </div>
 
-        
-      </table>
+        <label>Prescription</label>
+        <input type="text" name="prescription" />
+
+        <button class="save-btn">Save</button>
+      </form>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

@@ -3,27 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>newdoctor</title>
+    <title>Update Doctor</title>
     <link rel="stylesheet" href="/static/new_doct.css" />
   </head>
+
   <body>
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="{{url_for("admin")}}">Back</a></li>
-        <li><a href="{{url_for("login")}}">Home</a></li>
+        <li><a href="{{ url_for('admin') }}">Back</a></li>
+        <li><a href="{{ url_for('login') }}">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
+
     <div class="admin_main">
       <div class="admin_block">
+
         <div id="header">
-          <h1>Add new Doctor</h1>
+          <h1>Update Doctor</h1>
         </div>
+
         <div id="main">
           <div id="content">
-            <form action="/add_doct" method="post">
 
+            <!-- IMPORTANT: Correct action -->
+            <form action="/edit_doct/{{ doctor.id }}" method="POST">
 
               <div class="form-field">
                 <label for="fullname">Fullname</label>
@@ -31,7 +36,7 @@
                   id="fullname"
                   name="fullname"
                   type="text"
-                  placeholder="Enter your fullname"
+                  value="{{ doctor.fullname }}"
                   required
                 />
               </div>
@@ -58,18 +63,13 @@
                 />
               </div>
 
-
-              
-
-              
-
               <div class="form-field">
                 <label for="specialization">Specialization</label>
                 <input
                   id="specialization"
                   name="specialization"
                   type="text"
-                  placeholder="Enter Specialization of Doctor"
+                  value="{{ doctor.specialization }}"
                   required
                 />
               </div>
@@ -80,7 +80,7 @@
                   id="department"
                   name="department"
                   type="text"
-                  placeholder="Enter Department of Doctor"
+                  value="{{ doctor.department }}"
                   required
                 />
               </div>
@@ -91,28 +91,30 @@
                   id="overview"
                   name="overview"
                   type="text"
-                  placeholder="Enter overview of the department"
+                  value="{{ doctor.overview }}"
                   required
                 />
               </div>
 
               <div class="form-field">
-                <label for="experience">experience(years)</label>
+                <label for="experience">Experience (years)</label>
                 <input
                   id="experience"
                   name="experience"
-                  type="text"
-                  placeholder="experience"
+                  type="number"
+                  value="{{ doctor.experience }}"
                   required
                 />
               </div>
 
               <div class="actions">
-                  <button type="submit">create</button>
+                <button type="submit">Update Doctor</button>
               </div>
+
             </form>
           </div>
         </div>
+
       </div>
     </div>
   </body>

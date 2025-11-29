@@ -3,68 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patients</title>
-    <link rel="stylesheet" href="/static/doctor.css" />
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="/static/patient.css" />
   </head>
 
   <body>
+    {% if request.args.get("cancelled") %}
+    <div class="cancel-popup">
+        <div class="cross">✖</div>
+        <span>Your appointment has been cancelled.</span>
+    </div>
+    {% endif %}
+
     <nav class="navbar">
       <ul class="nav-links">
+        <li><a href="/">Back</a></li>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
+
     <div class="admin_main">
       <div id="admin_block">
+        <!-- TOP BAR -->
         <div class="top-bar">
-          <span class="welcome">Welcome patient</span>
+          <span class="welcome">Welcome {{ patient.fullname }}</span>
+
           <div class="search-box">
-            <button id="create">History</button>
-            <button>Logout</button>
+            <a href="/p_history"><button id="create">History</button></a>
+            <a href="{{ url_for('login') }}"><button>Logout</button></a>
           </div>
         </div>
 
-        <div id="wel1">
-          Departments
-          <div class="doctor">
-            <div>
-              <button>view details</button>
-            </div>
-          </div>
+        <!-- DEPARTMENTS -->
+        <div id="wel1">Departments</div>
 
-          <div class="doctor">
-            <div>
-              <button>view details</button>
-            </div>
-          </div>
+        {% for d in departments %}
+        <div class="department-row">
+          <span class="dept-name">{{ d.department }}</span>
 
-          <div class="doctor">
-            <div>
-              <button>view details</button>
-            </div>
-          </div>
+          <a href="/department/{{ d.department }}">
+            <button class="view-btn">View Details</button>
+          </a>
         </div>
+        {% endfor %}
 
-        <div id="wel1">Upcoming Appointments</div>
-        <table>
+        <!-- UPCOMING APPOINTMENTS -->
+        <div class="section-title">Upcoming Appointments</div>
+
+        <table class="appointment-table">
           <thead>
             <tr>
               <th>Sr No.</th>
-              <th>Doctor Name</th>
+              <th>Doctor</th>
               <th>Department</th>
               <th>Date</th>
-              <th colspan="2">Time</th>
+              <th>Time</th>
+              <th>Cancel</th>
             </tr>
           </thead>
+
           <tbody>
+            {% if upcoming %} {% for a in upcoming %}
             <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>45/5/2025</td>
-              <td>08 am</td>
-              <td><button id="delete">cancel</button></td>
+              <td>{{ loop.index }}</td>
+              <td>{{ a.doctor }}</td>
+              <td>{{ a.department }}</td>
+              <td>{{ a.date }}</td>
+              <td>{{ a.time }}</td>
+              <td>
+                <a href="/cancel_appointment/{{ a.id }}">
+                  <button class="cancel-btn">Cancel</button>
+                </a>
+              </td>
             </tr>
+            {% endfor %} {% else %}
+            <tr>
+              <td colspan="6" class="no-data">No appointments.</td>
+            </tr>
+            {% endif %}
           </tbody>
         </table>
       </div>

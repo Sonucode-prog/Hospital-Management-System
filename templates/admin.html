@@ -13,44 +13,77 @@
   <body>
     <nav class="navbar">
       <ul class="nav-links">
-          <li><a href="/">Home</a></li>
+          <li><a href="{{url_for("login")}}">Back</a></li>
+          <li><a href="{{url_for("login")}}">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
+
     <div class="admin_main">
       <div class="admin_block">
+
         <div class="top-bar">
           <span class="welcome">Welcome Admin</span>
-          <div class="search-box">
-            <input type="search" placeholder="doctor, patient, department..." />
+
+          
+          <form class="search-box" method="GET" action="/admin">
+            <input type="search" name="q" placeholder="doctor, patient..." />
+
+            <select name="category" style="padding: 6px; border-radius: 6px;">
+              <option value="doctor">Doctor</option>
+              <option value="patient">Patient</option>
+            </select>
+
             <div>
-              <button>search</button>
-              <a href="{{ url_for("new_doct")}}">
-                <button id="create">Create</button>
+              <button type="submit">search</button>
+
+              <a href="{{ url_for('add_doct') }}">
+                <button id="create" type="button">Create</button>
               </a>
-              
             </div>
-          </div>
+          </form>
+          
+
         </div>
 
         <div id="wel1">Registered doctors</div>
+        {% for d in doctors %}
         <div class="doctor">
+          <div class="doctor-name">
+            {{d.fullname}}-{{d.department}}
+          </div>
+
           <div>
-            <button id="blacklist">blacklist</button>
-            <button id="delete">delete</button>
-            <button id="edit">edit</button>
+            <a href="{{ url_for('delete_doctor', id=d[0]) }}">
+              <button id="delete">Delete</button>
+            </a>
+
+            <a href="{{url_for("edit_doct", id=d[0])}}">
+              <button id="edit">edit</button>
+            </a>
+            
           </div>
         </div>
+        {% endfor %}
 
         <div id="wel1">Registered Patient</div>
+        {% for p in patients %}
         <div class="doctor">
+          <div class="doctor-name">
+            {{p.fullname}}-{{p.age}}-{{p.gender}}
+          </div>
+
           <div>
-            <button id="blacklist">blacklist</button>
-            <button id="delete">delete</button>
-            <button id="edit">edit</button>
+            <a href="{{ url_for('delete_patient', id=p[0]) }}">
+              <button id="delete">delete</button>
+            </a>
+            <a href="{{url_for("edit_pati", id=p[0])}}">
+              <button id="edit">edit</button>
+            </a>
           </div>
         </div>
+        {% endfor %}
 
         <div id="wel1">Upcoming Appointments</div>
         <table>
@@ -60,67 +93,30 @@
               <th>Patient Name</th>
               <th>Doctor Name</th>
               <th>Department</th>
-              <th>Patient history</th>
+              <th>Patient History</th>
             </tr>
           </thead>
+        
           <tbody>
+            {% for a in appointments %}
             <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
+              <td>{{ loop.index }}</td>
+              <td>{{ a.patient }}</td>
+              <td>{{ a.doctor }}</td>
+              <td>{{ a.department }}</td>
+        
+              <td>
+                <a href="/admin/patient_history/{{ a.patient_id }}">
+                  <button class="view-btn">View</button>
+                </a>
+              </td>
+            
             </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
-
-            <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td>ECG</td>
-              <td>Abnormal<br />Heartbeats</td>
-              <td><button>view</button></td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
+        
+
       </div>
     </div>
   </body>

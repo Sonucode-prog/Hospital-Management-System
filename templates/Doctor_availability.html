@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Availability</title>
+
+    <!-- Availability Page CSS -->
+    <link rel="stylesheet" href="/static/doc_avail.css" />
+  </head>
+
+  <body>
+    <div class="admin_main">
+      <div id="admin_block" class="glass-container fade-in">
+        <h2 id="wel1" class="title">Doctor's Availability</h2>
+
+        <!-- Date Picker -->
+        <form method="GET" class="date-form">
+          <input
+            type="date"
+            name="date"
+            class="date-input"
+            value="{{ date }}"
+          />
+          <button type="submit" class="load-btn">Load</button>
+        </form>
+
+        {% if date %}
+        <h2 class="selected-date">Selected Date: {{ date }}</h2>
+
+        <div class="slot-buttons">
+          <form method="POST" class="slot-form">
+            <input type="hidden" name="slot" value="morning" />
+            {% if slots.morning_slot == 'available' %}
+            <button class="slot-btn available-btn animate">
+              08:00 - 12:00 AM
+            </button>
+            {% else %}
+            <button class="slot-btn unavailable-btn animate">
+              08:00 - 12:00 AM
+            </button>
+            {% endif %}
+          </form>
+
+          <form method="POST" class="slot-form">
+            <input type="hidden" name="slot" value="evening" />
+            {% if slots.evening_slot == 'available' %}
+            <button class="slot-btn available-btn animate">
+              04:00 - 09:00 PM
+            </button>
+            {% else %}
+            <button class="slot-btn unavailable-btn animate">
+              04:00 - 09:00 PM
+            </button>
+            {% endif %}
+          </form>
+        </div>
+
+        <div class="save-button-container">
+            <a href="{{ url_for('doctor') }}">
+                <button class="save-btn pulse">Go to Dashboard</button>
+            </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

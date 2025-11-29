@@ -10,7 +10,8 @@
   <body>
     <nav class="navbar">
       <ul class="nav-links">
-          <li><a href="/">Home</a></li>
+          <li><a href="{{url_for("login")}}">Back</a></li>
+          <li><a href="{{url_for("login")}}">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
       </ul>
@@ -18,38 +19,90 @@
     <div class="admin_main">
       <div id="admin_block">
         <div class="top-bar">
-          <span class="welcome">Welcome Dr. Abcd</span>
+          <span class="welcome">Welcome {{doctors[0][1]}}</span>
           <div class="search-box">
-            <button>Logout</button>
+            <a href="{{ url_for('login') }}">
+              <button>Logout</button>
+            </a>
           </div>
         </div>
 
         <div id="wel1">Upcoming Appointments</div>
+
         <table>
           <thead>
             <tr>
               <th>Sr No.</th>
               <th>Patient Name</th>
-              <th>Patient history</th>
+              <th>Patient History</th>
               <th colspan="2">Actions</th>
             </tr>
           </thead>
+
           <tbody>
+            {% if upcoming %}
+            {% for a in upcoming %}
             <tr>
-              <td>1.</td>
-              <td>In-person</td>
-              <td><button>update</button></td>
-              <td><button id="create">mark as complete</button></td>
-              <td><button id="delete">cancel</button></td>
+              <td>{{ loop.index }}</td>
+              <td>{{ a.patient }}</td>
+
+              <!-- Update -->
+              <td>
+                <a href="/doctor/update_history/{{ a.id }}">
+                  <button>update</button>
+                </a>
+              </td>
+
+              <!-- Mark Complete -->
+              <td>
+                <a href="/mark_complete/{{ a.id }}">
+                  <button id="create">mark as complete</button>
+                </a>
+              </td>
+
+              <!-- Cancel -->
+              <td>
+                <a href="/doctor/cancel/{{ a.id }}">
+                  <button id="delete">cancel</button>
+                </a>
+              </td>
             </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+              <td colspan="5" style="text-align:center;">No upcoming appointments.</td>
+            </tr>
+            {% endif %}
           </tbody>
         </table>
+
         <div id="wel1">Assigned Patients</div>
+
+        {% if assigned %}
+        {% for p in assigned %}
         <div class="doctor">
+          <span>{{ p.fullname }}</span>
           <div>
-            <button>view</button>
+            <a href="/doctor/patient_history/{{ p.id }}">
+              <button>view</button>
+            </a>
           </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <div class="doctor">
+          <span>No assigned patients.</span>
+        </div>
+        {% endif %}
+
+        <div>
+          <div class="search-box">
+            <a href="{{ url_for('doctor_availability') }}">
+              <button>Provide Availability</button>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </body>

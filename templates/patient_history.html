@@ -1,78 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient History</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>newdoctor</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='patient_hist.css')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='patient_hist.css')}}"
+    />
+  </head>
 
-</head>
-
-<body>
-  <nav class="navbar">
-    <ul class="nav-links">
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="/patient_dash">Back</a></li>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-  <div id="admin_main">
-    <div class="admin_block">
-      <h2>Patient History</h2>
-      <a href="">
-        <button class="button" >back</button>
-      </a> 
-      
-      <div class="patient-info">
-        <p>Patient Name: Mr. abcde</p>
-        <p>Doctors' Name: Dr. pqrst</p>
-        <p>Department: Cardiology</p>
+      </ul>
+    </nav>
+
+    <div id="admin_main">
+      <div class="admin_block">
+        <h2>Patient History</h2>
+
+        <div class="patient-info">
+          <p>Patient Name: {{ patient.fullname }}</p>
+
+          {% if history %}
+          <p>Doctor Name: {{ history[0].doctor_name }}</p>
+          <p>Department: {{ history[0].department }}</p>
+          {% endif %}
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Visit No.</th>
+              <th>Visit Type</th>
+              <th>Tests Done</th>
+              <th>Diagnosis</th>
+              <th>Prescription</th>
+              <th>Medicines</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% if history %} {% for h in history %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ h.visit_type }}</td>
+              <td>{{ h.tests_done }}</td>
+              <td>{{ h.diagnosis }}</td>
+              <td>{{ h.prescription }}</td>
+              <td>{{ h.medicines }}</td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+              <td colspan="6" class="no-data">No history available.</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
       </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Visit No.</th>
-            <th>Visit Type</th>
-            <th>Tests Done</th>
-            <th>Diagnosis</th>
-            <th>Prescription</th>
-            <th>Medicines</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1.</td>
-            <td>In-person</td>
-            <td>ECG</td>
-            <td>Abnormal<br>Heartbeats</td>
-            <td>exercise daily</td>
-            <td>Medicine 1</td>
-          </tr>
-          <tr>
-            <td>2.</td>
-            <td>In-person</td>
-            <td>ECG</td>
-            <td>Abnormal<br>Heartbeats</td>
-            <td>exercise daily</td>
-            <td>Medicine 2</td>
-          </tr>
-          <tr>
-            <td>3.</td>
-            <td>In-person</td>
-            <td>ECG</td>
-            <td>normal<br>Heartbeats</td>
-            <td>cont. exercise</td>
-            <td>Medicine 3</td>
-          </tr>
-          <tr>
-            <td colspan="6">...</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

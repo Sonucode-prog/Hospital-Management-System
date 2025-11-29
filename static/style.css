@@ -44,13 +44,14 @@ body {
 /* ================= BODY & BACKGROUND ================= */
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  align-items: flex-start;
   background-color: #1a2a3a;
   background: url(image.png) no-repeat center center fixed;
   background-size: cover; 
   display: flex;
   justify-content: flex-end; 
-  align-items: flex-end;
   padding: 40px;             
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #e0e0e0;

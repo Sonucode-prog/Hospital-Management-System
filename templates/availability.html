@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Availability</title>
+    <link rel="stylesheet" href="/static/availability.css">
+</head>
+
+<body>
+    {% if success %}
+    <div class="success-popup">
+        <div class="tick">✔</div>
+        <span>{{ success }}</span>
+    </div>
+    {% endif %}
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="/patient_dash">Back</a></li>
+
+            <li><a href="{{url_for("login")}}">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h1>{{ doctor.fullname }} - Availability</h1>
+
+        <div class="table-box">
+
+            {% for s in slots %}
+            <div class="row">
+
+                <!-- Date -->
+                <div class="date-box">
+                    {{ s.date }}
+                </div>
+
+                <!-- Morning slot -->
+                <form method="POST" class="slot-form">
+                    <input type="hidden" name="slot_id" value="{{ s.id }}">
+                    <input type="hidden" name="date" value="{{ s.date }}">
+                    <input type="hidden" name="time" value="08:00 - 12:00">
+
+                    {% if s.morning_slot == 'available' %}
+                        <button class="green">08:00 - 12:00</button>
+                    {% else %}
+                        <button class="red" disabled>08:00 - 12:00</button>
+                    {% endif %}
+                </form>
+
+                <!-- Evening slot -->
+                <form method="POST" class="slot-form">
+                    <input type="hidden" name="slot_id" value="{{ s.id }}">
+                    <input type="hidden" name="date" value="{{ s.date }}">
+                    <input type="hidden" name="time" value="04:00 - 09:00 pm">
+
+                    {% if s.evening_slot == 'available' %}
+                        <button class="green">04:00 - 09:00 pm</button>
+                    {% else %}
+                        <button class="red" disabled>04:00 - 09:00 pm</button>
+                    {% endif %}
+                </form>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</body>
+</html>

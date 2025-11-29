@@ -1,0 +1,179 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    background: rgba(26, 42, 58, 0.85);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  
+    border-bottom: 2px solid #55c9ff;
+    backdrop-filter: blur(6px);
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+  }
+  
+  .nav-links li a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    color: #8aff00;
+    text-shadow: 0 0 8px rgba(138, 255, 0, 0.6);
+  }
+  
+  /* Prevent admin content from hiding behind navbar */
+  .admin_main {
+    padding-top: 100px;
+  }
+
+/* BACKGROUND */
+body {
+    background: url("/static/image3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+/* SUCCESS POPUP */
+.success-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background: rgba(0, 180, 0, 0.85);
+    padding: 14px 22px;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease-out;
+}
+
+.tick {
+    font-size: 22px;
+}
+
+/* POPUP ANIMATION */
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 70%;
+    margin: auto;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid #55c9ff;
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.35);
+
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* PAGE HEADING */
+.container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #005f99;
+}
+
+/* TABLE BOX */
+.table-box {
+    margin-top: 20px;
+}
+
+/* EACH ROW */
+.row {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #8ad7ff;
+    border-radius: 12px;
+
+    padding: 12px 20px;
+    margin-bottom: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.row:hover {
+    background: rgba(255, 255, 255, 0.70);
+    box-shadow: 0 4px 10px rgba(0, 150, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* DATE BOX */
+.date-box {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004b73;
+    width: 150px;
+}
+
+/* SLOT BUTTONS */
+.slot-form button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 12px;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 160px;
+}
+
+/* AVAILABLE SLOT */
+.green {
+    background: #00b4ff;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+.green:hover {
+    background: #0096d2;
+    box-shadow: 0 0 14px rgba(0, 150, 212, 0.6);
+}
+
+/* BOOKED SLOT */
+.red {
+    background: #ff5c5c;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* ANIMATION FOR PAGE LOAD */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

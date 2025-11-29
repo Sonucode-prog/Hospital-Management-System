@@ -1,0 +1,155 @@
+/* Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: url(image3.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism Container */
+.glass-container {
+    width: 650px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Smooth fade animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Title */
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Date form */
+.date-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.date-input {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #777;
+    font-size: 15px;
+}
+
+.load-btn {
+    background: #0099ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.load-btn:hover {
+    background: #0072c9;
+}
+
+/* Selected Date */
+.selected-date {
+    font-size: 20px;
+    text-align: center;
+    margin: 15px 0;
+    color: #222;
+    font-weight: bold;
+}
+
+/* Slot buttons */
+.slot-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.slot-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.available-btn {
+    background: #c8ffc8;
+    border: 2px solid #2e8b57;
+    color: #0e5c2f;
+}
+
+.unavailable-btn {
+    background: #ffc8c8;
+    border: 2px solid #d11a1a;
+    color: #820000;
+}
+
+/* Hover animations */
+.slot-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Smooth pop animation */
+.animate {
+    animation: pop 0.5s ease;
+}
+@keyframes pop {
+    0% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+/* Save button */
+.save-button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.save-btn {
+    padding: 12px 30px;
+    background: #00d36c;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulseAni 1.5s infinite;
+}
+@keyframes pulseAni {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.save-btn:hover {
+    background: #00b45a;
+}

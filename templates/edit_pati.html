@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Patient</title>
+    <link rel="stylesheet" href="/static/edit_pati.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{{ url_for('admin') }}">Back</a></li>
+            <li><a href="{{ url_for('login') }}">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main_block">
+        <div id="header">
+            <h1>Update Patient</h1>
+        </div>
+
+        <div id="main">
+            <div id="content">
+                <form action="/edit_pati/{{ patient[0] }}" method="post">
+                    <div class="form-field">
+                        <label for="fullname">Full Name</label>
+                        <input id="fullname" name="fullname" type="text" placeholder="Enter your name (not number)"
+                            required />
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="age">Age</label>
+                        <input id="age" name="age" type="text" placeholder="Enter your age" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="gender">Gender:</label>
+                        <select name="gender" required>
+                            <option value="" disabled selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact">Contact</label>
+                        <input id="contact" name="contact" type="text" placeholder="Enter your phone number" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="blood">Blood group</label>
+                        <input
+                            id="blood"
+                            name="blood"
+                            type="text"
+                            placeholder="Enter your blood group"
+                            required
+                        />
+                    </div>
+          
+                    <div class="form-field">
+                        <label for="height">Height(in cm)</label>
+                        <input
+                            id="height"
+                            name="height"
+                            type="number"
+                            placeholder="Enter your height in cm"
+                            required
+                        />
+                    </div>
+          
+                    <div class="form-field">
+                        <label for="weight">Weight(in KG)</label>
+                        <input
+                            id="weight"
+                            name="weight"
+                            type="number"
+                            placeholder="Enter your name(not number)"
+                            required
+                        />
+                    </div>
+
+
+                    <div class="actions">
+                        
+                        <button type="submit">Update Patient</button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

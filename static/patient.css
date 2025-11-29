@@ -117,6 +117,7 @@
   font-size: 1.25em;
 }
 
+
 /* ✅ TABLE STYLING */
 table {
   width: 100%;
@@ -186,7 +187,7 @@ td button:hover {
 .doctor {
   margin: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 2px;
   background: rgba(255, 255, 255, 0.28);
   border: 1px solid #79d3ff;
@@ -215,4 +216,79 @@ td button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-15px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+.department-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid #79d3ff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.dept-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #003d5b;
+}
+
+.view-btn {
+    padding: 8px 20px;
+    background: #00b4ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #0096d2;
+}
+
+/* CANCEL POPUP – Bottom Right */
+.cancel-popup {
+    position: fixed;
+    bottom: 30px;      /* ⬅⬅ Popup goes to bottom */
+    right: 30px;
+
+    background: #ff4444;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+
+    animation: slideUp 0.5s ease-out,
+               fadeOut 0.5s ease-out 2.8s forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+
+/* fade animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-15px);
+        visibility: hidden;
+    }
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ department }}</title>
+    <link rel="stylesheet" href="/static/department.css" />
+  </head>
+  <body>
+    <nav class="top-menu">
+      <span class="title">Department of {{ department }}</span>
+      <div>
+        <a href="/patient_dash">Back</a> |
+        <a href="/p_history">History</a> |
+        <a href="/login">Logout</a>
+      </div>
+    </nav>
+
+    <div class="main">
+      <h2>Overview</h2>
+      <p>{{ overview.overview }}</p>
+
+      <h2>Doctors' List</h2>
+
+      <div class="doctor-list">
+        {% for d in doctors %}
+        <div class="doctor-row">
+          <span class="doc-name">{{ d.fullname }}</span>
+
+          <div class="btn-group">
+            <a href="/check_availability/{{ d.id }}">
+              <button class="blue">check availability</button>
+            </a>
+
+            <a href="/doctor_profile/{{ d.id }}">
+              <button class="blue">view details</button>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

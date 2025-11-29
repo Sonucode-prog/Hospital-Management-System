@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient_book</title>
+    <link rel="stylesheet" href="/static/doc_avail.css" />
+    <style>
+        .green {
+            background: #c8ffc8;
+            padding: 10px;
+            border: 2px solid green;
+        }
+
+        .red {
+            background: #ffd1d1;
+            padding: 10px;
+            border: 2px solid red;
+        }
+
+        .blue {
+            background: #b6d6ff;
+            padding: 10px;
+            border: 2px solid blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Doctor's Availability</h2>
+
+    <!-- MORNING SLOT -->
+    {% if morning == 'available' %}
+    <form method="POST" action="/confirm_booking">
+        <input type="hidden" name="doctor_id" value="{{ doctor_id }}">
+        <input type="hidden" name="date" value="{{ date }}">
+        <input type="hidden" name="slot" value="08:00 - 12:00 am">
+        <button class="green">08:00 - 12:00 am</button>
+    </form>
+    {% else %}
+    <button class="red" disabled>08:00 - 12:00 am</button>
+    {% endif %}
+
+
+    <!-- EVENING SLOT -->
+    {% if evening == 'available' %}
+    <form method="POST" action="/confirm_booking">
+        <input type="hidden" name="doctor_id" value="{{ doctor_id }}">
+        <input type="hidden" name="date" value="{{ date }}">
+        <input type="hidden" name="slot" value="04:00 - 09:00 pm">
+        <button class="green">04:00 - 09:00 pm</button>
+    </form>
+    {% else %}
+    <button class="red" disabled>04:00 - 09:00 pm</button>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: url("image3.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .navbar {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 15px 25px;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid #00aaff;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #e8faff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .nav-links li a:hover {
+    color: #7dff60;
+  }
+  
+  .main {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-card {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 28px rgba(0, 150, 255, 0.3);
+  }
+  
+  .title {
+    font-size: 40px;
+    color: #004c7a;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .desc {
+    font-size: 20px;
+    color: #00344e;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .box {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.45);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.25);
+    transition: 0.3s;
+  }
+  
+  .box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.45);
+  }
+  
+  .box h3 {
+    color: #004c7a;
+    margin-bottom: 12px;
+  }
+  

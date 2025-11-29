@@ -14,6 +14,14 @@
     </div>
     {% endif %}
 
+    {% if error %}
+    <div class="error-popup">
+        <div class="cross">✖</div>
+        <span>{{ error }}</span>
+    </div>
+    {% endif %}
+
+
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="/patient_dash">Back</a></li>

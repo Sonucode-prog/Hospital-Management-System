@@ -634,7 +634,7 @@ def check_availability(doctor_id):
         """, (doctor_id,))
         slots = cur.fetchall()
 
-        # === BOOKING ===
+       # === BOOKING ===
         if request.method == "POST":
             slot_id = request.form.get("slot_id")
             date = request.form.get("date")
@@ -645,7 +645,24 @@ def check_availability(doctor_id):
             if patient_id is None:
                 return "Patient not logged in", 401
 
-            # Save appointment
+            # CHECK IF SLOT ALREADY BOOKED
+            cur.execute("""
+                SELECT id FROM appointments
+                WHERE doctor_id=? AND date=? AND time=?
+            """, (doctor_id, date, time))
+
+            exists = cur.fetchone()
+
+            if exists:
+                # Slot already booked → show error popup
+                return render_template(
+                    "availability.html",
+                    doctor=doctor,
+                    slots=slots,
+                    error=f"⚠ Slot {time} on {date} is already booked!"
+                )
+
+            #SAVE NEW APPOINTMENT
             cur.execute("""
                 INSERT INTO appointments(patient_id, doctor_id, department, date, time)
                 VALUES(?, ?, ?, ?, ?)
@@ -653,7 +670,7 @@ def check_availability(doctor_id):
 
             conn.commit()
 
-            # Refresh slot list after booking
+            #Reload updated slots
             cur.execute("""
                 SELECT id, date, morning_slot, evening_slot
                 FROM availability
@@ -662,7 +679,7 @@ def check_availability(doctor_id):
             """, (doctor_id,))
             slots = cur.fetchall()
 
-            success = f"Your appointment has been booked for {date} at {time}."
+            success = f"✔ Appointment booked for {date} at {time}!"
 
             return render_template(
                 "availability.html",
@@ -670,6 +687,7 @@ def check_availability(doctor_id):
                 slots=slots,
                 success=success
             )
+
 
         # === DEFAULT GET ===
         return render_template("availability.html", doctor=doctor, slots=slots)
@@ -910,6 +928,14 @@ def doctor_patient_history(patient_id):
     finally:
         cur.close()
         conn.close()
+        
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 

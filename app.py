@@ -237,17 +237,21 @@ def p_history():
 @app.route("/doctor")
 def doctor():
     doctor_id = session.get("doctor_id")
-    
-    doctors=module.get_all_doctors()
+
+    if not doctor_id:
+        return redirect("/")
+
+    doctor = module.get_doctor_by_id(doctor_id)
     upcoming = module.get_doctor_upcoming_appointments(doctor_id)
     assigned = module.get_assigned_patients(doctor_id)
 
     return render_template(
         "doctor.html",
-        doctors=doctors,
+        doctor=doctor,
         upcoming=upcoming,
         assigned=assigned
     )
+
 
 
 @app.route("/patient_dash")

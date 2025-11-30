@@ -14,9 +14,12 @@
     padding: 15px 25px;
     position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    backdrop-filter: blur(6px);
     border-bottom: 2px solid #00aaff;
-    backdrop-filter: blur(7px);
-  }
+}
   
   .nav-links {
     list-style: none;

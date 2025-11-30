@@ -19,7 +19,8 @@
     <div class="admin_main">
       <div id="admin_block">
         <div class="top-bar">
-          <span class="welcome">Welcome {{doctors[0][1]}}</span>
+          <span class="welcome">Welcome {{ doctor.fullname }}
+          </span>
           <div class="search-box">
             <a href="{{ url_for('login') }}">
               <button>Logout</button>
@@ -83,7 +84,7 @@
         <div class="doctor">
           <span>{{ p.fullname }}</span>
           <div>
-            <a href="/doctor/patient_history/{{ p.id }}">
+            <a href="/doctor/patient_history/{{ p.patient_id }}">
               <button>view</button>
             </a>
           </div>

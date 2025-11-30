@@ -362,10 +362,16 @@ def get_doctor_upcoming_appointments(doctor_id):
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT a.id, u.fullname AS patient, a.date, a.time
+        SELECT 
+            a.id,
+            u.fullname AS patient,
+            a.date,
+            a.time
         FROM appointments a
-        JOIN users u ON a.patient_id = u.id
-        WHERE a.doctor_id=? AND a.date >= date('now')
+        JOIN patients p ON a.patient_id = p.id
+        JOIN users u ON p.user_id = u.id
+        WHERE a.doctor_id = ? 
+          AND a.date >= date('now')
         ORDER BY a.date ASC
     """, (doctor_id,))
 
@@ -374,21 +380,38 @@ def get_doctor_upcoming_appointments(doctor_id):
     conn.close()
     return rows
 
+
 def get_assigned_patients(doctor_id):
     conn = host_get_db()
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT DISTINCT u.fullname, u.id
+        SELECT DISTINCT 
+            u.fullname,
+            p.id AS patient_id
         FROM appointments a
-        JOIN users u ON a.patient_id = u.id
-        WHERE a.doctor_id=?
+        JOIN patients p ON a.patient_id = p.id
+        JOIN users u ON p.user_id = u.id
+        WHERE a.doctor_id = ?
     """, (doctor_id,))
 
     rows = cur.fetchall()
     cur.close()
     conn.close()
     return rows
+
+
+def get_doctor_by_id(doctor_id):
+    conn = host_get_db()
+    curr = conn.cursor()
+
+    curr.execute("SELECT * FROM doctors WHERE id=?", (doctor_id,))
+    row = curr.fetchone()
+
+    curr.close()
+    conn.close()
+    return row
+
 
 
 

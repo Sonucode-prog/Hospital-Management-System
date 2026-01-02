@@ -58,10 +58,15 @@ The application supports **three distinct user roles**, each with specific respo
 ---
 ## 📸 Screenshots
 
-![Login Page](screenshots/home.png)
+### Home Page
+![Home Page](screenshots/home.png)
+### admin Dashborad
 ![Dashboard](screenshots/admin.png)
+### Doctor Dashborad
 ![Login Page](screenshots/doctor.png)
+### Patient Dashborad
 ![Dashboard](screenshots/patient.png)
+### Availability page
 ![Dashboard](screenshots/availability.png)
 
 

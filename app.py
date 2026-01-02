@@ -10,7 +10,7 @@ def created_app():
     app.debug=True
     app.app_context().push() 
     return app
-app= created_app()
+app= created_app() 
 
 
 @app.route("/", methods=["GET","POST"])

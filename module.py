@@ -7,7 +7,7 @@ def host_get_db():
     return conn
 
 
-def create_tables():
+def create_tables(): 
     conn=host_get_db()
     curr=conn.cursor()
     
